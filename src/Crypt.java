@@ -20,11 +20,35 @@ public class Crypt {
         System.out.println("Den dekrypterade texten:\n" + decrypted);
     }
 
-    private static String decrypt(String crypted, int key) {
-        return "";
-    }
 
     private static String crypt(String text, int key) {
-        return "";
+        char ord = 0;
+
+        String crypt = "";
+
+        for (int i = 0; i < text.length(); i++) {
+            ord = text.charAt(i);
+            ord += key;
+
+            crypt += ord;
+        }
+        return crypt;
     }
+
+    private static String decrypt(String crypted, int key) {
+
+        char ord2 = 0;
+
+        String decrypted="";
+
+        for(int i = 0 ; i < crypted.length(); i++) {
+            ord2 = crypted.charAt(i);
+            ord2 -= key;
+
+            decrypted += ord2;
+        }
+        return decrypted;
+    }
+
+
 }
